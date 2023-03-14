@@ -1,0 +1,79 @@
+.logo {
+    font-size: 32px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+
+a:hover {
+    opacity: 0.7;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-image: linear-gradient(45deg, rgb(73, 62, 218), rgba(255, 0, 0, 0.705));
+    height: 13vh;
+}
+
+.navlist {
+    list-style: none;
+    display: flex;
+}
+
+.navlist li {
+    letter-spacing: 3px;
+    margin-left: 32px;
+}
+
+.mobilemenu {
+    cursor: pointer;
+}
+
+.mobilemenu div {
+    width: 32px;
+    height: 2px;
+    background: #fff;
+    margin: 8px;
+}
+
+
+.navlist {
+    position: absolute;
+    top: 10.5vh;
+    right: 0;
+    width: 50vh;
+    height: 90vh;
+    background-image: linear-gradient(45deg, rgb(73, 62, 218), rgba(255, 0, 0, 0.705));
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    transform: translateX(100%);
+    transition: transform 0.4s ease-in-out;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+
+.navlist li {
+    margin-left: 0;
+}
+
+.mobilemenu {
+    display: block;
+}
+
+.navlist.active {
+    transform: translateX(0);
+}
+
