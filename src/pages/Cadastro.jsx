@@ -91,7 +91,7 @@ function Cadastro(){
             <label for="cpf">CPF:</label>
             <input type="text" id="cpf" required onChange={
                 (e) => {
-                    setCpf(e.target.value);
+                    setCpf(e.target.value.replace(/[^0-9]/g,''));
                 }
             }/>
           </div>

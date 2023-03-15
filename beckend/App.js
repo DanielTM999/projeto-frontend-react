@@ -42,6 +42,10 @@ app.post("/cadastro", (req, res) => {
 
 })
 
+app.post("/login", (req, res) => {
+    res.send("hello");
+})
+
 app.listen(port, () => {
     console.log('http://localhost:'+port);
 });
