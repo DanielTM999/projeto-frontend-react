@@ -13,6 +13,7 @@ function Cadastro(){
     const [RepSenha, SetRepSenha] = useState()
     const [Erro, SetErro] = useState()
     const [ErroSenha, SetErroSenha] = useState()
+    const [ErroTam, SetErroTam] = useState()
 
 
     const handlePassword1 = (e) => {
@@ -21,6 +22,12 @@ function Cadastro(){
           SetErroSenha(false);
         }else{
           SetErroSenha(true);
+        }
+
+        if(e.target.value.length < 5){
+          SetErroTam(true);
+        }else{
+          SetErroTam(false);
         }
     }
 
@@ -48,6 +55,7 @@ function Cadastro(){
       <div className="card">
         {Erro && <div className="erros">Cpf/email já cadastrado</div>}
         {ErroSenha && <div className="erros">Senha incompativeis</div>}
+        {ErroTam && <div className="erros">Senha muito curta</div>}
         <h2>Cadastro</h2>
           <form onSubmit={handleSubmit}>
           <div className="form-control">
@@ -91,7 +99,7 @@ function Cadastro(){
                 }
             }/>
           </div>
-          <button disabled={Senha !== RepSenha} type="submit">Cadastrar</button>
+          <button disabled={(Senha !== RepSenha) && (Senha.length < 6)} type="submit">Cadastrar</button>
           </form>
         <a className="cadlnk" href="/login">Login</a>
       </div>
