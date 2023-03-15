@@ -3,8 +3,6 @@ import "../styles/Navbarstyle.css";
 
 function Navbar(){
 
-    const [logado, setlogado] = useState(sessionStorage.nome);
-
     const conteinerRef = useRef();
     const navlist = useRef();
     useLayoutEffect(() => {
@@ -24,7 +22,7 @@ function Navbar(){
         <>
             <header>
                 <nav>
-                    {logado !== 'true' && <h1><a href="/login">Login</a></h1>}
+                    {sessionStorage.logado !== 'true' && <h1><a href="/login">Login</a></h1>}
                     <a className="logo" href="/">Logo</a>
                     <div ref={conteinerRef} className="mobilemenu">
                         <div className="line1"></div>

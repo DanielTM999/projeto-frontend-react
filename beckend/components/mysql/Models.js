@@ -68,5 +68,25 @@ function GetElements(Table, db){
     });
 }
 
-module.exports = {createTable, dropTable, insertTable, GetElements}
+function getInigElemnts(Table, cond, customer, db){
+    return new Promise((resolve, reject) => {
+        var pste = "";
+
+        for(let i=0; i < cond.length;i++){
+            pste += `${cond[i]} = ? OR `
+        }
+        pste = pste.substring(0, pste.length-3);
+
+        const sql =`SELECT * FROM ${Table} WHERE ${pste};`;
+
+        db.query(sql, customer, (error, results, fields) => {
+            if(error) reject(error);
+
+            resolve({"results":results, "erros":error});
+        });
+    });
+
+}
+
+module.exports = {createTable, dropTable, insertTable, GetElements, getInigElemnts}
 
