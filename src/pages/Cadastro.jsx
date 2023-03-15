@@ -10,27 +10,38 @@ function Cadastro(){
     const [email, setEmail] = useState();
     const [cpf, setCpf] = useState();
     const [Senha, setSenha] = useState();
-    const [RepSenha, SetRepSenha] = useState()
+    const [RepSenha, SetSenha1] = useState()
     const [Erro, SetErro] = useState()
     const [ErroSenha, SetErroSenha] = useState()
     const [ErroTam, SetErroTam] = useState()
+    const [Tam, SetTam] = useState()
     const [senhaVisivel, setSenhaVisivel] = useState(false);
 
 
 
     const handlePassword1 = (e) => {
         setSenha(e.target.value);
+        SetTam(e.target.value.length);
         if(e.target.value === RepSenha){
           SetErroSenha(false);
         }else{
           SetErroSenha(true);
         }
 
-        if(e.target.value.length < 5){
+        if(e.target.value.length < 6){
           SetErroTam(true);
         }else{
           SetErroTam(false);
         }
+    }
+
+    const handlePassword2 = (e) =>{
+      SetSenha1(e.target.value)
+      if(e.target.value === Senha){
+        SetErroSenha(false);
+      }else{
+        SetErroSenha(true);
+      }
     }
 
     const handleSubmit = (e) => {
@@ -95,21 +106,12 @@ function Cadastro(){
           </div>
           <div className="form-control">
             <label for="confirma-senha">Confirme sua senha:</label>
-            <input type="password" id="confirma-senha" required onChange={
-                (e) => {
-                    SetRepSenha(e.target.value);
-                    if(e.target.value === Senha){
-                      SetErroSenha(false);
-                    }else{
-                      SetErroSenha(true);
-                    }
-                }
-            }/>
+            <input type={senhaVisivel ? "text" : "password"} id="confirma-senha" required onChange={handlePassword2}/>
           </div>
-          <button id="bntsenha" type={senhaVisivel ? "text" : "password"} onClick={() => setSenhaVisivel(!senhaVisivel)}>
+          <button id="bntsenha" type="button" onClick={() => setSenhaVisivel(!senhaVisivel)}>
             {senhaVisivel ? "Ocultar senha" : "Mostrar senha"}
           </button>
-          <button disabled={(Senha !== RepSenha) && (Senha.length < 6)} type="submit">Cadastrar</button>
+            <button disabled={(Senha !== RepSenha) || (Tam < 6)} type="submit">Cadastrar</button>
           </form>
         <a className="cadlnk" href="/login">Login</a>
       </div>
