@@ -129,3 +129,12 @@ button[type=submit]:hover {
     align-items: center;
     background-color: rgb(224, 117, 117);
 }
+
+#bntsenha{
+    border: none;
+    cursor: pointer;
+    margin-bottom: 15px;
+    border-radius: 250px;
+    margin-right: 230px;
+    background-color: #9b23ea;
+}

@@ -14,6 +14,8 @@ function Cadastro(){
     const [Erro, SetErro] = useState()
     const [ErroSenha, SetErroSenha] = useState()
     const [ErroTam, SetErroTam] = useState()
+    const [senhaVisivel, setSenhaVisivel] = useState(false);
+
 
 
     const handlePassword1 = (e) => {
@@ -84,7 +86,12 @@ function Cadastro(){
           </div>
           <div className="form-control">
             <label for="senha">Senha:</label>
-            <input type="password" id="senha" required onChange={handlePassword1}/>
+            <input
+              type={senhaVisivel ? "text" : "password"}
+              id="senha"
+              required
+              onChange={handlePassword1}
+            />
           </div>
           <div className="form-control">
             <label for="confirma-senha">Confirme sua senha:</label>
@@ -99,6 +106,9 @@ function Cadastro(){
                 }
             }/>
           </div>
+          <button id="bntsenha" type={senhaVisivel ? "text" : "password"} onClick={() => setSenhaVisivel(!senhaVisivel)}>
+            {senhaVisivel ? "Ocultar senha" : "Mostrar senha"}
+          </button>
           <button disabled={(Senha !== RepSenha) && (Senha.length < 6)} type="submit">Cadastrar</button>
           </form>
         <a className="cadlnk" href="/login">Login</a>
