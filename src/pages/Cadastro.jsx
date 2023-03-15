@@ -11,7 +11,6 @@ function Cadastro(){
     const [cpf, setCpf] = useState();
     const [Senha, setSenha] = useState();
     const [RepSenha, SetRepSenha] = useState()
-    const [Resposta, SetResposta] = useState([])
     const [Erro, SetErro] = useState()
     const [ErroSenha, SetErroSenha] = useState()
 
@@ -31,7 +30,6 @@ function Cadastro(){
 
         axios.post("http://localhost:5000/cadastro", resposta)
         .then((resp) => {
-          SetResposta(resp.data);
           console.log(resp.data);
           if(resp.data.erros === null){
             navigate('/login')
