@@ -15,6 +15,7 @@ function Cadastro(){
     const [ErroSenha, SetErroSenha] = useState()
     const [ErroTam, SetErroTam] = useState()
     const [Tam, SetTam] = useState()
+    const [ncpf, setNcpf] = useState()
     const [senhaVisivel, setSenhaVisivel] = useState(false);
 
 
@@ -67,8 +68,9 @@ function Cadastro(){
             <div className="container">
       <div className="card">
         {Erro && <div className="erros">Cpf/email já cadastrado</div>}
-        {ErroSenha && <div className="erros">Senha incompativeis</div>}
+        {ErroSenha && <div className="erros">Senha incompativel</div>}
         {ErroTam && <div className="erros">Senha muito curta</div>}
+        {ncpf && <div className="erros">cpf invalido</div>}
         <h2>Cadastro</h2>
           <form onSubmit={handleSubmit}>
           <div className="form-control">
@@ -92,6 +94,11 @@ function Cadastro(){
             <input type="text" id="cpf" required onChange={
                 (e) => {
                     setCpf(e.target.value.replace(/[^0-9]/g,''));
+                    if(isNaN(e.target.value)){
+                      setNcpf(true);
+                    }else{
+                      setNcpf(false);
+                    }
                 }
             }/>
           </div>
@@ -111,7 +118,7 @@ function Cadastro(){
           <button id="bntsenha" type="button" onClick={() => setSenhaVisivel(!senhaVisivel)}>
             {senhaVisivel ? "Ocultar senha" : "Mostrar senha"}
           </button>
-            <button disabled={(Senha !== RepSenha) || (Tam < 6)} type="submit">Cadastrar</button>
+            <button disabled={(Senha !== RepSenha) || (Tam < 6) || isNaN(cpf)} type="submit">Cadastrar</button>
           </form>
         <a className="cadlnk" href="/login">Login</a>
       </div>

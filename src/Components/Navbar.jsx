@@ -1,8 +1,9 @@
 import React, {useRef, useLayoutEffect} from "react";
+import { useNavigate } from "react-router-dom";
 import "../styles/Navbarstyle.css";
 
 function Navbar(){
-
+    const navigate = useNavigate();
     const conteinerRef = useRef();
     const navlist = useRef();
     useLayoutEffect(() => {
@@ -10,7 +11,6 @@ function Navbar(){
             navlist.current.classList.toggle('active');
             console.log(conteinerRef.current);
         };
-
         conteinerRef.current.addEventListener("click", handleClick);
 
         return () => {
@@ -23,6 +23,7 @@ function Navbar(){
             <header>
                 <nav>
                     {sessionStorage.logado !== 'true' && <h1><a href="/login">Login</a></h1>}
+                    {sessionStorage.logado === 'true' && <h1>{sessionStorage.nome}</h1>}
                     <a className="logo" href="/">Logo</a>
                     <div ref={conteinerRef} className="mobilemenu">
                         <div className="line1"></div>
@@ -33,6 +34,13 @@ function Navbar(){
                         <li><a href="/">Texto1</a></li>
                         <li><a href="/">Texto2</a></li>
                         <li><a href="/">Texto3</a></li>
+                        {sessionStorage.logado === 'true' && <li><p className="logout" onClick={() => {
+                            sessionStorage.logado = null;
+                            sessionStorage.nome = null;
+                            sessionStorage.email = null;
+                            sessionStorage.cpf = null;
+                            navigate('/')
+                        }}>Logout</p></li>}
                     </ul>
                 </nav>
             </header>

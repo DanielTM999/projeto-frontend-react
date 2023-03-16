@@ -43,7 +43,20 @@ app.post("/cadastro", (req, res) => {
 })
 
 app.post("/login", (req, res) => {
-    res.send("hello");
+    model.getInigElemnts("usuarios", ["cpf"], [req.body.cpf], db)
+    .then((data) => {
+        if(data.results.length !== 0){
+            if((req.body.cpf === data.results[0].cpf) && (req.body.senha === data.results[0].senha)){
+                const response = {"id":data.results[0].idusuarios, "nome":data.results[0].nome, "email":data.results[0].email, "cpf":data.results[0].cpf, "logado":true};
+                res.send(JSON.stringify(response))
+            }else{
+                res.send(JSON.stringify({"erros":true, "status":"usuario/senha incorretos"}))
+            }
+        }else{
+            res.send(JSON.stringify({"erros":true, "status":"usuario/senha incorretos"}))
+        }
+    })
+    .catch(err => {JSON.stringify(err)})
 })
 
 app.listen(port, () => {
