@@ -59,6 +59,16 @@ app.post("/login", (req, res) => {
     .catch(err => {JSON.stringify(err)})
 })
 
+
+app.post("/produtos", (req, res) => {
+    console.log(req.body);
+    model.getInigElemnts("produtos", ["idprodutos"], [req.body.id], db)
+    .then((data) => {
+        res.send(JSON.stringify(data))
+    })
+    .catch(err => {console.log(err)})
+})
+
 app.listen(port, () => {
     console.log('http://localhost:'+port);
 });

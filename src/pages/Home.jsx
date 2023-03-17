@@ -25,7 +25,7 @@ function Home(){
                       <h2>{item.titulo}</h2>
                       <p class="description">{item.decricao}</p>
                       <p class="price">{item.preco}</p>
-                      <button class="buy-btn">Buy Now</button>
+                      <a href={"/produto?id="+item.idprodutos}><button class="buy-btn">Buy Now</button></a>
                   </div>
                 ))}
             </div>

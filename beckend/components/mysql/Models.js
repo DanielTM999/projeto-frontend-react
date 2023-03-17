@@ -73,7 +73,11 @@ function getInigElemnts(Table, cond, customer, db){
         var pste = "";
 
         for(let i=0; i < cond.length;i++){
-            pste += `${cond[i]} = ? OR `
+            if(isNaN(customer[i])){
+                pste += `${cond[i]} = ? OR `
+            }else{
+                pste += `${cond[i]} = ${customer[i]} OR `
+            }
         }
         pste = pste.substring(0, pste.length-3);
 
