@@ -20,10 +20,13 @@ function Login(){
           .then((data) => {
               if(data.data.logado === true){
                   console.log(data.data);
-                  sessionStorage.logado = "true"
+                  sessionStorage.logado = "true";
                   sessionStorage.nome = data.data.nome;
                   sessionStorage.email = data.data.email;
                   sessionStorage.cpf = data.data.cpf;
+                  if(data.data.vendedor === 1){
+                    sessionStorage.vendedor = "true";
+                  }
                   navigate("/")
               }else{
                   setError(data.data.erros);

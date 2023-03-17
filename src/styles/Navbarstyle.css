@@ -88,3 +88,12 @@ body {
 .logout:hover{
     opacity: 0.8;
 }
+
+.vendas{
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+}
+
+.vendas:hover{
+    opacity: 0.8;
+}

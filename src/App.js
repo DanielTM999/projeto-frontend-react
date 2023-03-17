@@ -1,5 +1,6 @@
 import './App.css';
 import {Routes, Route } from "react-router-dom";
+import { RouteProvider, RouteProviderLog } from "./Components/RouteProvider";
 import Home from "./pages/Home.jsx";
 import Login from './pages/Login';
 import Cadastro from './pages/Cadastro';
@@ -14,16 +15,16 @@ function App() {
         />
         <Route
           path="/login"
-          element={<Login />}
+          element={<RouteProviderLog><Login /></RouteProviderLog >}
         />
         <Route
           path='/cadastro'
-          element={<Cadastro />}
+          element={<RouteProviderLog><Cadastro /></RouteProviderLog >}
         />
 
         <Route
           path='/produto'
-          element={<Produto />}
+          element={<RouteProvider><Produto /></RouteProvider>}
         />
     </Routes>
   );

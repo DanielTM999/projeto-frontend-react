@@ -26,7 +26,7 @@ function Produto(){
             <Navbar />
             {param.map(item => (
                      <div class="container_produtos">
-                    <div class="produto">
+                        <div class="produto">
                         <div class="produto-imagem">
                             <img src="https://www.exemplo.com/imagem-do-produto.jpg" alt="Imagem do Produto"/>
                         </div>

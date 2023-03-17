@@ -32,13 +32,14 @@ function Navbar(){
                     </div>
                     <ul ref={navlist} className="navlist">
                         <li><a href="/">Texto1</a></li>
-                        <li><a href="/">Texto2</a></li>
+                        {sessionStorage.vendedor === 'true' && <li><a className="vendas" href="/">Vender</a></li>}
                         <li><a href="/">Texto3</a></li>
                         {sessionStorage.logado === 'true' && <li><p className="logout" onClick={() => {
                             sessionStorage.logado = null;
                             sessionStorage.nome = null;
                             sessionStorage.email = null;
                             sessionStorage.cpf = null;
+                            sessionStorage.vendedor = null;
                             navigate('/')
                         }}>Logout</p></li>}
                     </ul>

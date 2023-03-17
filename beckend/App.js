@@ -33,7 +33,7 @@ app.post("/cadastro", (req, res) => {
         if(data.results.length >= 1){
             res.send(JSON.stringify({"erros":true, "status":"duplicado"}))
         }else{
-            model.insertTable("usuarios", ["nome", "email", "cpf", "senha"], [req.body.usuario, req.body.email, req.body.cpf, req.body.Senha], db)
+            model.insertTable("usuarios", ["nome", "email", "cpf", "senha", "vendedor"], [req.body.usuario, req.body.email, req.body.cpf, req.body.Senha, false], db)
             .then((data) => {res.send(JSON.stringify(data))})
             .catch(err => res.send(JSON.stringify(err)))
         }
@@ -47,7 +47,7 @@ app.post("/login", (req, res) => {
     .then((data) => {
         if(data.results.length !== 0){
             if((req.body.cpf === data.results[0].cpf) && (req.body.senha === data.results[0].senha)){
-                const response = {"id":data.results[0].idusuarios, "nome":data.results[0].nome, "email":data.results[0].email, "cpf":data.results[0].cpf, "logado":true};
+                const response = {"id":data.results[0].idusuarios, "nome":data.results[0].nome, "email":data.results[0].email, "cpf":data.results[0].cpf, "logado":true, "vendedor":data.results[0].vendedor};
                 res.send(JSON.stringify(response))
             }else{
                 res.send(JSON.stringify({"erros":true, "status":"usuario/senha incorretos"}))
