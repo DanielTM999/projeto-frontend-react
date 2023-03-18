@@ -97,3 +97,9 @@ body {
 .vendas:hover{
     opacity: 0.8;
 }
+
+.namelogo{
+    text-transform: capitalize;
+    font-weight: bold;
+    color: #fff;
+}

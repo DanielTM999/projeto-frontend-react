@@ -1,0 +1,76 @@
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.cadastro-produto {
+    background-color: #f2f2f2;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.titulo {
+    font-size: 36px;
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #333;
+    text-transform: uppercase;
+}
+
+.label {
+    display: block;
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.input,
+.textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 5px;
+    border: 2px solid #ccc;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+.input[type="file"] {
+    padding: 0;
+    cursor: pointer;
+}
+
+.textarea {
+    resize: vertical;
+}
+
+.botao {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    margin-top: 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    text-transform: uppercase;
+    transition: background-color 0.3s;
+}
+
+.botao:hover {
+    background-color: #3e8e41;
+}
+
+#nome-produto{
+    background-color: white;
+    width: 100%;
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 5px;
+    border: 2px solid #ccc;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}

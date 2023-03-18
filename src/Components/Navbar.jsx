@@ -23,7 +23,7 @@ function Navbar(){
             <header>
                 <nav>
                     {sessionStorage.logado !== 'true' && <h1><a href="/login">Login</a></h1>}
-                    {sessionStorage.logado === 'true' && <h1>{sessionStorage.nome}</h1>}
+                    {sessionStorage.logado === 'true' && <h1 className="namelogo">{sessionStorage.nome}</h1>}
                     <a className="logo" href="/">Logo</a>
                     <div ref={conteinerRef} className="mobilemenu">
                         <div className="line1"></div>
