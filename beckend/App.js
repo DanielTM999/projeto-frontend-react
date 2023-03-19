@@ -1,8 +1,22 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
+const multer = require("multer");
 const bodyParser = require('body-parser')
 const port = 5000;
+
+//upload
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, 'uploads/')
+  },
+  filename: function (req, file, cb) {
+    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+    cb(null, uniqueSuffix + '-' + file.originalname);
+  }
+});
+
+const upload = multer({ storage: storage });
 
 //info database
 const banco = "projetofrontend";
@@ -67,6 +81,19 @@ app.post("/produtos", (req, res) => {
         res.send(JSON.stringify(data))
     })
     .catch(err => {console.log(err)})
+})
+
+
+app.post("/addprod", upload.single('imagem'), (req, res) => {
+
+    const nome = req.body.nome;
+    const info = req.body.info;
+    const preco = req.body.preco;
+    const estoque = req.body.estoque;
+    const cpf = req.body.cpf;
+    const imagem = req.file;
+
+
 })
 
 app.listen(port, () => {

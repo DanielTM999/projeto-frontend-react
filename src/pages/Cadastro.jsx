@@ -90,7 +90,7 @@ function Cadastro(){
             }/>
           </div>
           <div className="form-control">
-            <label for="cpf">CPF:</label>
+            <label for="cpf">CPF/CNPJ:</label>
             <input type="text" id="cpf" required onChange={
                 (e) => {
                     setCpf(e.target.value.replace(/[^0-9]/g,''));

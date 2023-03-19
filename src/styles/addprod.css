@@ -1,4 +1,4 @@
-.container {
+.container_produtos {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
@@ -40,7 +40,6 @@
 
 .input[type="file"] {
     padding: 0;
-    cursor: pointer;
 }
 
 .textarea {
@@ -64,6 +63,7 @@
     background-color: #3e8e41;
 }
 
+
 #nome-produto{
     background-color: white;
     width: 100%;
@@ -74,3 +74,26 @@
     box-sizing: border-box;
     margin-bottom: 20px;
 }
+
+@media only screen and (max-width: 768px) {
+    .container {
+        max-width: 90%;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .titulo {
+        font-size: 24px;
+    }
+
+    .label {
+        font-size: 16px;
+    }
+
+    .input,
+    .textarea {
+            font-size: 16px;
+            padding: 8px;
+            margin-bottom: 15px;
+        }
+    }

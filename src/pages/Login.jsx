@@ -50,7 +50,7 @@ function Login(){
         <h2>Login</h2>
         <form onSubmit={handleSubmit}>
           <div class="form-control">
-            <label for="username">CPF do Usuário:</label>
+            <label for="username">CPF/CNPJ do Usuário:</label>
             <input type="text"
             id="username" name="username"
             placeholder="Insira seu CPF"

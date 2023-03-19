@@ -34,6 +34,11 @@ function Produto(){
                             <h1 class="produto-titulo">{item.titulo}</h1>
                             <p class="produto-texto">{item.decricao}</p>
                             <div class="produto-preco">{item.preco}R$</div>
+                            <div class="produto-preco">
+                                <h4>Em estoque:{item.estoque}</h4>
+                                <label htmlFor="esto">quantidade:</label>
+                                <input type="number" name="esto" id="esto" />
+                            </div>
                             <button class="produto-botao-comprar">Comprar</button>
             </div>
         </div>
